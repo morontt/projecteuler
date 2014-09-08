@@ -1,4 +1,4 @@
-projecteuler
+ProjectEuler
 ============
 
-decision of problems on Project Euler
+Decision of problems on [Project Euler](https://projecteuler.net/)
