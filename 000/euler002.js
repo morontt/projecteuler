@@ -1,4 +1,6 @@
 /**
+ * Even Fibonacci numbers
+ *
  * Completed on Mon, 8 Sep 2014, 23:22
  */
 

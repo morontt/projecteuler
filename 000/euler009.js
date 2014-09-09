@@ -1,4 +1,6 @@
 /**
+ * Special Pythagorean triplet
+ *
  * Created by morontt on 09.09.14.
  */
 

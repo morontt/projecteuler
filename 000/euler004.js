@@ -1,4 +1,6 @@
 /**
+ * Largest palindrome product
+ *
  * Completed on Tue, 9 Sep 2014, 00:08
  */
 
