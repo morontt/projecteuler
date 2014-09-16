@@ -1,9 +1,11 @@
 /**
  * Maximum path sum I
+ *
+ * Completed on Tue, 16 Sep 2014, 22:15
  */
 
 (function () {
-    var triangle, raw = [
+    var raw = [
         "75",
         "95 64",
         "17 47 82",
@@ -21,20 +23,19 @@
         "04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"
     ];
 
-    triangle = raw.map(function (el) {
+    var triangle = raw.map(function (el) {
         return el.split(' ').map(function (s) {
             return parseInt(s);
         });
     });
 
     var i, j, n = triangle.length;
-    var path = [];
 
     for (i = n - 2; i >= 0; i--) {
         for (j = 0; j <= i; j++) {
-
+            triangle[i][j] += Math.max(triangle[i + 1][j], triangle[i + 1][j + 1]);
         }
     }
 
-    console.log(triangle.length);
+    console.log(triangle[0][0]);
 })();
