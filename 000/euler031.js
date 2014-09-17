@@ -19,7 +19,7 @@
 
         var i, d, rest, u, sum = 0;
 
-        d = Math.floor(k/s[0]) + 1;
+        d = Math.floor(k / s[0]) + 1;
         u = s.slice(1);
 
         for (i = 0; i < d; i++) {
