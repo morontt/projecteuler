@@ -48,8 +48,6 @@ while i0 < 10
       x2 = i2 * 100 + i0 * 10 + i1
       if (is_prime x0) and (is_prime x1) and (is_prime x2)
         list.push x0
-        list.push x1
-        list.push x2
       i2++
     i1++
   i0++
@@ -68,9 +66,6 @@ while i0 < 10
         x3 = i3 * 1000 + i0 * 100 + i1 * 10 + i2
         if (is_prime x0) and (is_prime x1) and (is_prime x2) and (is_prime x3)
           list.push x0
-          list.push x1
-          list.push x2
-          list.push x3
         i3++
       i2++
     i1++
@@ -93,10 +88,6 @@ while i0 < 10
           x4 = i4 * 10000 + i0 * 1000 + i1 * 100 + i2 * 10 + i3
           if (is_prime x0) and (is_prime x1) and (is_prime x2) and (is_prime x3) and (is_prime x4)
             list.push x0
-            list.push x1
-            list.push x2
-            list.push x3
-            list.push x4
           i4++
         i3++
       i2++
@@ -123,11 +114,6 @@ while i0 < 10
             x5 = i5 * 100000 + i0 * 10000 + i1 * 1000 + i2 * 100 + i3 * 10 + i4
             if (is_prime x0) and (is_prime x1) and (is_prime x2) and (is_prime x3) and (is_prime x4) and (is_prime x5)
               list.push x0
-              list.push x1
-              list.push x2
-              list.push x3
-              list.push x4
-              list.push x5
             i5++
           i4++
         i3++
