@@ -25,12 +25,8 @@ def square_loop(t):
 
     return res
 
-z = to_binary(7830457)
-
-print z
-
 tmp = 28433
-for i in z:
+for i in to_binary(7830457):
     tmp = split_production(tmp, square_loop(i))
 
 print tmp + 1
