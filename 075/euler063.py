@@ -1,4 +1,6 @@
-# 28.07.2015 14:40:45
+# Powerful digit counts
+#
+# Completed on 28 Jul 2015, 14:40
 
 def nlength(x, n):
     return len(str(x ** n))

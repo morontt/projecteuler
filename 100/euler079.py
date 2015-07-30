@@ -1,5 +1,6 @@
-# completed 29.07.2015 02:14:39
-# 73162890
+# Passcode derivation
+#
+# Completed on 29 Jul 2015, 02:14
 
 auths = []
 symbols = ['0','1','2','3','6','7','8','9']

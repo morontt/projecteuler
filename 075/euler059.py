@@ -1,5 +1,6 @@
-# completed 30.07.2015 01:56:32
-# 107359
+# XOR decryption
+#
+# Completed on Thu, 30 Jul 2015, 01:56
 
 f = open('./p059_cipher.txt', 'r')
 tmp = f.readline().strip().split(',')

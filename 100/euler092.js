@@ -1,5 +1,6 @@
-// completed 29.07.2015 13:45:34
-// 8581146
+// Square digit chains
+//
+// Completed on 29 Jul 2015, 13:45
 
 (function () {
     var cache = {};
