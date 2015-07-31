@@ -5,7 +5,10 @@
 function is_prime (x)
   local res = true
   local lim = math.floor(math.sqrt(x))
-  for i = 2, lim do
+  if x % 2 == 0 then
+    return false
+  end
+  for i = 3, lim, 2 do
     if x % i == 0 then
       res = false
       break
