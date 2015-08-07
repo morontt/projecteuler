@@ -1,5 +1,6 @@
-# completed 2015.08.05 01:39
-# 127035954683
+# Cubic permutations
+#
+# Completed on 5 Aug 2015, 01:39
 
 def p_hash(x):
     arr = list(str(x))
