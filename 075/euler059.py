@@ -8,6 +8,7 @@ f.close()
 
 data = map(lambda c: int(c), tmp)
 
+
 def cipher_decode(arr, key):
     decoded = []
     i = 0
@@ -34,10 +35,10 @@ for k1 in xrange(97, 123):
             print passwd + '---' + s.join(z)
 """
 
-sum = 0
+sum0 = 0
 dec = cipher_decode(data, 'god')
 
 for c in dec:
-    sum += ord(c)
+    sum0 += ord(c)
 
-print sum
+print sum0

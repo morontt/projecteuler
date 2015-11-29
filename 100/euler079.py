@@ -3,13 +3,14 @@
 # Completed on 29 Jul 2015, 02:14
 
 auths = []
-symbols = ['0','1','2','3','6','7','8','9']
+symbols = ['0', '1', '2', '3', '6', '7', '8', '9']
 
 f = open('./p079_keylog.txt', 'r')
 for line in f:
     auths.append(line.strip())
 
 f.close()
+
 
 def to_str(x):
     s = ''
@@ -18,6 +19,7 @@ def to_str(x):
         s += symbols[int(i)]
 
     return s
+
 
 def auth_check(key, code):
     res = False
@@ -34,6 +36,7 @@ def auth_check(key, code):
 test = 2097151
 ll = len(auths)
 t = 0
+s = ''
 
 while t < ll:
     s = to_str(test)

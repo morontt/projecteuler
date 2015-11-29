@@ -2,6 +2,7 @@
 #
 # Completed on Mon, 27 Jul 2015, 00:07
 
+
 def to_binary(x):
     res = []
     i = 0
@@ -13,9 +14,11 @@ def to_binary(x):
 
     return res
 
+
 def split_production(x, y):
 
     return (x * y) % 10000000000
+
 
 def square_loop(t):
     res = 2

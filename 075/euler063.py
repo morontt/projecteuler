@@ -2,6 +2,7 @@
 #
 # Completed on 28 Jul 2015, 14:40
 
+
 def nlength(x, n):
     return len(str(x ** n))
 
