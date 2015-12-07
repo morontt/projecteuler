@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int main () {
+int main() {
     int al = 2, bl = 5;
     int ah = 3, bh = 7;
     int i = 9;

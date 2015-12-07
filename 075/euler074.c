@@ -20,7 +20,7 @@ long factsum(long x) {
     return s;
 }
 
-int main () {
+int main() {
     long i, t;
     int j, k, find, rez;
     long chain[70];

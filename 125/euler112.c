@@ -7,7 +7,7 @@
 
  #include <stdio.h>
 
-int bouncy (long x) {
+int bouncy(long x) {
     int s_old, s = 0;
     long x0, x1;
     int res = 0;
@@ -53,7 +53,7 @@ int bouncy (long x) {
     return res;
 }
 
-int main () {
+int main() {
     long i = 101, j = 0;
     double r = 0.0;
 

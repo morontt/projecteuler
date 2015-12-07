@@ -9,7 +9,7 @@
 
 #define HIGHT 12001
 
-int hcf (int a, int b) {
+int hcf(int a, int b) {
     int r;
 
     r = a % b;
@@ -22,7 +22,7 @@ int hcf (int a, int b) {
     return b;
 }
 
-int main () {
+int main() {
     int i = 3;
     long s = 0;
     int j, z, x;
