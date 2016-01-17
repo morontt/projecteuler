@@ -5,9 +5,9 @@
  * Completed on Mon, 7 Dec 2015, 23:40
  */
 
- #include <stdio.h>
+#include <stdio.h>
 
- #define TARGET 2000000
+#define TARGET 2000000
 
 unsigned long rectangles(long a, long b) {
     unsigned long s = 0;

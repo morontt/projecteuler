@@ -5,7 +5,7 @@
  * Completed on Sun, 6 Dec 2015, 01:36
  */
 
- #include <stdio.h>
+#include <stdio.h>
 
 int bouncy(long x) {
     int s_old, s = 0;
