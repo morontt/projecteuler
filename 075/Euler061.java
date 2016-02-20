@@ -1,5 +1,7 @@
 /**
  * Cyclical figurate numbers
+ *
+ * Completed on Sat, 20 Feb 2016, 11:53
  */
 
 import java.util.function.Function;
@@ -19,6 +21,7 @@ public class Euler061 {
     Elem[][] matrix = new Elem[6][100];
     int[] lenghts = new int[6];
     boolean[] free = new boolean[]{true, true, true, true, true};
+    boolean solved = false;
 
     void fillRow(int idx, Function <Integer, Integer> f) {
         int i = 0, j = 0, r;
@@ -28,7 +31,6 @@ public class Euler061 {
             if (r > 999 && r < 10000) {
                 Elem e = new Elem(r);
                 if (e.lo > 9) {
-                    //System.out.println("idx: " + idx + " i: " + e.i);
                     matrix[idx][j] = e;
                     j++;
                 }
@@ -39,7 +41,17 @@ public class Euler061 {
         lenghts[idx] = j;
     }
 
-    void iteration(int cnt, Elem curr, Elem first) {
+    void showResult(String str) {
+        String[] strs = str.split(" ");
+        int result = 0;
+        for (String substr : strs) {
+            result += Integer.parseInt(substr);
+        }
+        System.out.println(str);
+        System.out.println(result);
+    }
+
+    void iteration(int cnt, Elem curr, Elem first, String str) {
         Elem z;
         int next = cnt + 1;
         for (int i = 0; i < 5; i++) {
@@ -49,13 +61,13 @@ public class Euler061 {
                     z = matrix[i][j];
                     if (cnt < 4) {
                         if (z.hi == curr.lo) {
-                            System.out.print(z.i + " ");
-                            iteration(next, z, first);
+                            iteration(next, z, first, str + z.i + " ");
                         }
                     } else {
                         if (z.hi == curr.lo && z.lo == first.hi) {
-                            System.out.println(z.i + " " + first.i);
-                            System.out.println("++++++++++++++++++++++");
+                            str += z.i + " " + first.i;
+                            showResult(str);
+                            solved = true;
                         }
                     }
                 }
@@ -75,8 +87,10 @@ public class Euler061 {
         eu.fillRow(5, n -> n * (3 * n - 2));
 
         for (int j = 0; j < eu.lenghts[5]; j++) {
-            System.out.println("---");
-            eu.iteration(0, eu.matrix[5][j], eu.matrix[5][j]);
+            eu.iteration(0, eu.matrix[5][j], eu.matrix[5][j], "");
+            if (eu.solved) {
+                break;
+            }
         }
     }
 }
