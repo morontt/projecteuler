@@ -8,18 +8,16 @@ public class Euler206 {
     long[] b = new long[250];
 
     boolean checkLo(Long q) {
-        String str = q.toString();
-        int len = str.length();
+        long w = q % 1000;
 
-        return str.charAt(len - 3) == '8';
+        return w > 799 && w < 900;
     }
 
     boolean checkHi(Long q) {
         String str = q.toString();
         int len = str.length();
 
-        return len == 13
-            && str.charAt(0) == '1'
+        return str.charAt(0) == '1'
             && str.charAt(2) == '2'
             && str.charAt(4) == '3'
             && str.charAt(6) == '4'
@@ -47,6 +45,7 @@ public class Euler206 {
             }
         }
 
+        stop:
         for (int j = 0; j < idx; j++) {
             // 10000 * 10101^2 = 1020302010000 (pattern 1.2.3.4.5.7)
             // 10000 * 13893^2 = 1930154490000
@@ -54,6 +53,7 @@ public class Euler206 {
                 q = 10000 * k * k + 2 * k * b[j] + b[j] * b[j] / 10000;
                 if (checkHi(q)) {
                     System.out.println("n: " + 10 * (10000 * k + b[j]));
+                    break stop;
                 }
             }
         }
