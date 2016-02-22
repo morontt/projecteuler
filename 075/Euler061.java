@@ -6,22 +6,22 @@
 
 import java.util.function.Function;
 
-class Elem {
-    int i, lo, hi;
-
-    Elem(int i) {
-        this.i = i;
-
-        lo = i % 100;
-        hi = (i - lo) / 100;
-    }
-}
-
 public class Euler061 {
     Elem[][] matrix = new Elem[6][100];
     int[] lenghts = new int[6];
     boolean[] free = new boolean[]{true, true, true, true, true};
     boolean solved = false;
+    
+    class Elem {
+        int i, lo, hi;
+
+        Elem(int i) {
+            this.i = i;
+
+            lo = i % 100;
+            hi = (i - lo) / 100;
+        }
+    }
 
     void fillRow(int idx, Function <Integer, Integer> f) {
         int i = 0, j = 0, r;
