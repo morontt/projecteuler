@@ -11,7 +11,7 @@ public class Euler061 {
     int[] lenghts = new int[6];
     boolean[] free = new boolean[]{true, true, true, true, true};
     boolean solved = false;
-    
+
     class Elem {
         int i, lo, hi;
 
