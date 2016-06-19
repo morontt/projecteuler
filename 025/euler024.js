@@ -19,6 +19,7 @@
             count++;
             if (count == position) {
                 console.log(list);
+                process.exit();
             }
         } else {
             for (i = 0; i < n; i++) {
