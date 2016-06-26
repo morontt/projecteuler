@@ -36,13 +36,12 @@ func main() {
         ok   bool = true
     )
 
-    fmt.Print("Enter m: ")
-    fmt.Scanln(&m)
+    m = 600851475143
 
     for ok {
         z, ok = div(m)
-        fmt.Println(z)
-
         m = m / z
     }
+
+    fmt.Println(z)
 }
