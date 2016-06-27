@@ -1,7 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
 
+/025/p022_names.txt
 /p054_poker.txt
 /p059_cipher.txt
 /p079_keylog.txt
 /p099_base_exp.txt
 /p081_matrix.txt
+*.fasl
