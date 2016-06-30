@@ -1,6 +1,8 @@
 ;; Large sum
 ;;
 ;; Completed on Wed, 10 Sep 2014, 23:47
+;;
+;; java -cp ~/path/to/clojure-1.8.0.jar clojure.main euler013.clj
 
 (def numbers '(
 37107287533902102798797998220837590246510135740250
