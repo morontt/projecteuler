@@ -1,6 +1,8 @@
 ;; Digit fifth powers
 ;;
 ;; Completed on Thu, 25 Sep 2014, 23:00
+;;
+;; java -cp ~/path/to/clojure-1.8.0.jar clojure.main euler030.clj
 
 (defn fifthpow [x]
   (int (Math/pow x 5)))

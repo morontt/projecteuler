@@ -1,6 +1,8 @@
 ;; Self powers
 ;;
 ;; Completed on Sat, 20 Sep 2014, 20:57
+;;
+;; java -cp ~/path/to/clojure-1.8.0.jar clojure.main euler048.clj
 
 (def lim 1000)
 
