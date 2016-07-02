@@ -26,6 +26,7 @@
             p2 = pentagons[j] + pentagons[i];
             if (pentagon_cache[p2] !== undefined && pentagon_cache[p1] !== undefined) {
                 console.log(p1);
+                process.exit();
             }
         }
     }
