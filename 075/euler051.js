@@ -41,8 +41,9 @@
 
         if (cnt >= max_cnt) {
             max_cnt = cnt;
-            console.log(cnt);
-            console.log(str);
+            if (cnt == 8) {
+                console.log(str);
+            }
         }
     }
 
