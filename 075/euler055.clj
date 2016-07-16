@@ -1,6 +1,8 @@
 ;; Lychrel numbers
 ;;
 ;; Completed on Mon, 6 Apr 2015, 23:02
+;;
+;; java -cp ~/path/to/clojure-1.8.0.jar clojure.main euler055.clj
 
 (require '[clojure.string :as s])
 
