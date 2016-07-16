@@ -21,10 +21,10 @@ def cipher_decode(arr, key):
 
 """
 run:
-    python 075/euler059.py > ~/decoded.txt
-    cat ~/decoded.txt | grep -i word
+    python 075/euler059.py | grep -i word
 
 password: god
+"""
 
 for k1 in xrange(97, 123):
     for k2 in xrange(97, 123):
@@ -33,7 +33,6 @@ for k1 in xrange(97, 123):
             z = cipher_decode(data, passwd)
             s = ''
             print passwd + '---' + s.join(z)
-"""
 
 sum0 = 0
 dec = cipher_decode(data, 'god')
