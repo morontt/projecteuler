@@ -2,9 +2,9 @@
 
 /025/p022_names.txt
 /050/p042_words.txt
-/p054_poker.txt
-/p059_cipher.txt
-/p079_keylog.txt
-/p099_base_exp.txt
-/p081_matrix.txt
+/075/p054_poker.txt
+/075/p059_cipher.txt
+/100/p079_keylog.txt
+/100/p099_base_exp.txt
+/100/p081_matrix.txt
 *.fasl
