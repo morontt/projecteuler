@@ -8,3 +8,4 @@
 /100/p099_base_exp.txt
 /100/p081_matrix.txt
 *.fasl
+*.beam
