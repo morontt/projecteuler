@@ -7,6 +7,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"runtime"
 	"sort"
 	"strings"
 )
@@ -14,9 +15,9 @@ import (
 var (
 	primes   []uint64
 	maxprime uint64
+	ncpu     uint64
 )
 
-const ncpu uint64 = 4
 const nmax uint64 = 10000000
 
 type IterationResult struct {
@@ -130,6 +131,7 @@ func main() {
 		res  IterationResult
 	)
 
+	ncpu = uint64(runtime.NumCPU())
 	maxprime = 1 + uint64(math.Sqrt(float64(nmax)))
 	primes = append(primes, 2, 3)
 
