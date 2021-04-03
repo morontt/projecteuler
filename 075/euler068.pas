@@ -16,28 +16,75 @@ var
   i : integer;
 
 procedure show(shape: ring);
+var
+  g : array[0..2] of integer;
+  min, idx, k : integer;
 begin
-  for i := 0 to (N - 1) do
-    write(shape[i]);
-  writeln('');
+  g[0] := shape[0] * 100 + shape[1] * 10 + shape[2];
+  g[1] := shape[3] * 100 + shape[2] * 10 + shape[4];
+  g[2] := shape[5] * 100 + shape[4] * 10 + shape[1];
+  min := 32767;
+  for i := 0 to 2 do
+    begin
+      if (g[i] < min) then
+        begin
+          min := g[i];
+          idx := i;
+        end;
+    end;
+
+  for i := 0 to 2 do
+    begin
+      k := idx + i;
+      if (k > 2) then
+        k := k - 3;
+      write(g[k]);
+    end;
+  writeln;
 end;
 
-procedure permutation(shape, used: ring; depth: integer);
+function check_ring(shape: ring; depth, sum: integer): integer;
 var
-  j: integer;
+  t : integer;
 begin
-  if (depth = N) then
-    show(shape)
-  else
+  check_ring := sum;
+  case (depth) of
+    3: check_ring := shape[0] + shape[1] + shape[2];
+    5:
+      begin
+        t := shape[2] + shape[3] + shape[4];
+        if (t <> sum) then
+          check_ring := -1;
+      end;
+    6:
+      begin
+        t := shape[1] + shape[4] + shape[5];
+        if (t <> sum) then
+          check_ring := -1;
+      end;
+  end;
+end;
+
+procedure permutation(shape, used: ring; depth, sum: integer);
+var
+  j, s: integer;
+begin
+  s := check_ring(shape, depth, sum);
+  if (s >= 0) then
     begin
-      for j := 0 to (N - 1) do
+      if (depth = N) then
+        show(shape)
+      else
         begin
-          if (used[j] = 0) then
+          for j := 0 to (N - 1) do
             begin
-              used[j] := 1;
-              shape[depth] := j + 1;
-              permutation(shape, used, depth + 1);
-              used[j] := 0;
+              if (used[j] = 0) then
+                begin
+                  used[j] := 1;
+                  shape[depth] := j + 1;
+                  permutation(shape, used, depth + 1, s);
+                  used[j] := 0;
+                end;
             end;
         end;
     end;
@@ -50,5 +97,5 @@ begin
       z[i] := 0;
     end;
 
-  permutation(r, z, 0);
+  permutation(r, z, 0, 0);
 end.
