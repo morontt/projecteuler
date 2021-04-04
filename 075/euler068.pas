@@ -18,11 +18,21 @@ var
 procedure show(shape: ring);
 var
   g : array[0..2] of integer;
-  min, idx, k : integer;
+  gr : array[0..2, 0..2] of integer;
+  min, idx, k, j : integer;
 begin
-  g[0] := shape[0] * 100 + shape[1] * 10 + shape[2];
-  g[1] := shape[3] * 100 + shape[2] * 10 + shape[4];
-  g[2] := shape[5] * 100 + shape[4] * 10 + shape[1];
+  g[0] := shape[0];
+  g[1] := shape[3];
+  g[2] := shape[5];
+  gr[0][0] := shape[0];
+  gr[0][1] := shape[1];
+  gr[0][2] := shape[2];
+  gr[1][0] := shape[3];
+  gr[1][1] := shape[2];
+  gr[1][2] := shape[4];
+  gr[2][0] := shape[5];
+  gr[2][1] := shape[4];
+  gr[2][2] := shape[1];
   min := 32767;
   for i := 0 to 2 do
     begin
@@ -38,7 +48,8 @@ begin
       k := idx + i;
       if (k > 2) then
         k := k - 3;
-      write(g[k]);
+      for j := 0 to 2 do
+        write(gr[k][j]);
     end;
   writeln;
 end;
