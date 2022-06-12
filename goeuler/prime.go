@@ -15,6 +15,18 @@ func IsPrime(x uint64) (flag bool) {
 		return true
 	}
 
+	if x%2 == 0 {
+		return false
+	}
+
+	if x%3 == 0 {
+		return false
+	}
+
+	if x%5 == 0 {
+		return false
+	}
+
 	limit = 1 + uint64(math.Sqrt(float64(x)))
 	flag = true
 
