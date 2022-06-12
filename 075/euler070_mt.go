@@ -6,6 +6,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/morontt/projecteuler/goeuler"
 	"math"
 	"runtime"
 	"sort"
@@ -23,32 +24,6 @@ const nmax uint64 = 10000000
 type IterationResult struct {
 	Min  float64
 	Find uint64
-}
-
-func isPrime(x uint64) bool {
-	var (
-		limit uint64
-	)
-
-	if x == 1 {
-		return false
-	}
-
-	if x == 2 || x == 3 {
-		return true
-	}
-
-	limit = 1 + uint64(math.Sqrt(float64(x)))
-	flag := true
-
-	for i := uint64(2); i < limit; i++ {
-		if x%i == 0 {
-			flag = false
-			break
-		}
-	}
-
-	return flag
 }
 
 func totient(x uint64) uint64 {
@@ -138,12 +113,12 @@ func main() {
 	j := uint64(0)
 	for i := uint64(0); j < maxprime; i++ {
 		j = 6*i + 1
-		if isPrime(j) {
+		if goeuler.IsPrime(j) {
 			primes = append(primes, j)
 		}
 
 		j = j + 4
-		if isPrime(j) {
+		if goeuler.IsPrime(j) {
 			primes = append(primes, j)
 		}
 	}
