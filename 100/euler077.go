@@ -39,12 +39,12 @@ func main() {
 	j := 0
 	for i := 0; j < maxprime; i++ {
 		j = 6*i + 1
-		if goeuler.IsPrime(uint64(j)) {
+		if goeuler.IsPrime(j) {
 			primes = append(primes, j)
 		}
 
 		j = j + 4
-		if goeuler.IsPrime(uint64(j)) {
+		if goeuler.IsPrime(j) {
 			primes = append(primes, j)
 		}
 	}

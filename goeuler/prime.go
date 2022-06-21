@@ -2,9 +2,9 @@ package goeuler
 
 import "math"
 
-func IsPrime(x uint64) (flag bool) {
+func IsPrime[Num NaturalNumber](x Num) (flag bool) {
 	var (
-		limit uint64
+		limit Num
 	)
 
 	if x == 1 || x == 4 {
@@ -27,10 +27,10 @@ func IsPrime(x uint64) (flag bool) {
 		return false
 	}
 
-	limit = 1 + uint64(math.Sqrt(float64(x)))
+	limit = 1 + Num(math.Sqrt(float64(x)))
 	flag = true
 
-	for i := uint64(6); i < limit; i += 6 {
+	for i := Num(6); i < limit; i += 6 {
 		if x%(i+1) == 0 {
 			flag = false
 			break
