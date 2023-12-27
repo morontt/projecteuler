@@ -30,11 +30,15 @@ func main() {
 			s1 = xa*xb + ya*yb
 			if s1 == 0 {
 				res += 1
+
+				continue
 			}
 
 			s2 = xa*(xb-xa) + ya*(yb-ya)
 			if s2 == 0 {
 				res += 1
+
+				continue
 			}
 
 			s3 = xb*(xb-xa) + yb*(yb-ya)
