@@ -8,23 +8,16 @@ import (
 	"fmt"
 	"math"
 	"runtime"
-	"sync"
 
 	"github.com/morontt/projecteuler/goeuler"
 )
 
 const nmax = 50000000
 
-type trCache struct {
-	mu   sync.RWMutex
-	data map[int]bool
-}
-
 var (
-	primes       []int
-	fourth       map[int]bool
-	triplesCache trCache
-	ncpu         int
+	primes []int
+	fourth map[int]bool
+	ncpu   int
 )
 
 func main() {
@@ -39,8 +32,6 @@ func main() {
 	fourth = make(map[int]bool)
 	fourth[16] = true
 	fourth[81] = true
-
-	triplesCache.data = make(map[int]bool)
 
 	for i := 0; j < maxprime; i++ {
 		j = 6*i + 1
@@ -87,6 +78,7 @@ func checkNumbers(start int, results chan<- int) {
 		p, delta, result int
 	)
 
+	cache := make(map[int]bool)
 	for i := start; i <= nmax; i += ncpu {
 		for _, p = range primes {
 			delta = i - p*p
@@ -94,7 +86,7 @@ func checkNumbers(start int, results chan<- int) {
 				break
 			}
 
-			if checkTriples(delta) {
+			if checkTriples(delta, cache) {
 				result += 1
 				break
 			}
@@ -104,10 +96,8 @@ func checkNumbers(start int, results chan<- int) {
 	results <- result
 }
 
-func checkTriples(x int) bool {
-	triplesCache.mu.RLock()
-	res, found := triplesCache.data[x]
-	triplesCache.mu.RUnlock()
+func checkTriples(x int, data map[int]bool) bool {
+	res, found := data[x]
 	if found {
 		return res
 	}
@@ -119,17 +109,13 @@ func checkTriples(x int) bool {
 		}
 
 		if _, ok := fourth[y]; ok {
-			triplesCache.mu.Lock()
-			triplesCache.data[x] = true
-			triplesCache.mu.Unlock()
+			data[x] = true
 
 			return true
 		}
 	}
 
-	triplesCache.mu.Lock()
-	triplesCache.data[x] = false
-	triplesCache.mu.Unlock()
+	data[x] = false
 
 	return false
 }
