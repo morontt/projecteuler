@@ -1,50 +1,73 @@
 // Arranged Probability
 //
-// Completed on
-
-// > 112529341 / 159140520
+// Completed on Sat, 9 Mar 2024, 20:42
 
 package main
 
 import (
 	"fmt"
+	"math/big"
 )
 
 func main() {
-	var i uint64 = 100_000_000
+	i := big.NewInt(1000_000_000_000)
+	e := big.NewInt(1)
 
 	for {
 		if checkDiscs(i) {
 			break
 		}
-		i++
+		i.Add(i, e)
 	}
 }
 
-func checkDiscs(m uint64) (res bool) {
-	var lb, rb, s, s0, s1 uint64
+func checkDiscs(m *big.Int) (res bool) {
+	var lb, rb, s, s0, s01, s1, s11 *big.Int
 
-	lb = 1
-	rb = m
-	s0 = m * (m - 1)
+	one := big.NewInt(1)
+	two := big.NewInt(2)
+
+	lb = big.NewInt(1)
+	rb = new(big.Int).Set(m)
+	s0 = new(big.Int).Set(m)
+	s01 = new(big.Int).Set(m)
+	s01.Sub(s01, one)
+	s0.Mul(s0, s01)
+
+	s = new(big.Int)
+	s1 = new(big.Int)
+	s11 = new(big.Int)
+
+	lbt := new(big.Int)
+
 	for {
-		if lb == rb || lb+1 == rb {
+		lbt.Set(lb)
+		lbt.Add(lbt, one)
+		if lbt.Cmp(rb) == 0 || lb.Cmp(rb) == 0 {
 			break
 		}
-		s = (lb + rb) >> 1
-		s1 = 2 * s * (s - 1)
 
-		if s0 == s1 {
+		s.Set(lb)
+		s.Add(s, rb)
+		s.Div(s, two)
+		s1.Set(s)
+		s11.Set(s)
+		s11.Sub(s11, one)
+		s1.Mul(s1, s11)
+		s1.Mul(s1, two)
+
+		cmp := s0.Cmp(s1)
+		if cmp == 0 {
 			fmt.Printf("> %d / %d\n", s, m)
 			res = true
 
 			break
 		}
 
-		if s0 < s1 {
-			rb = s
+		if cmp < 0 {
+			rb.Set(s)
 		} else {
-			lb = s
+			lb.Set(s)
 		}
 	}
 
